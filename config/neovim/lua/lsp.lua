@@ -1,34 +1,4 @@
 -- LSP Setup
-local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if (not status) then
-	print("cmp_nvim_lsp is not available")
-	return
-end
-
-local status, lspconfig = pcall(require, "lspconfig")
-if (not status) then
-	print("lspconfig is not available")
-	return
-end
-
-local status, luasnip = pcall(require, "luasnip")
-if (not status) then
-	print("luasnip is not available")
-	return
-end
-
-local status, cmp = pcall(require, "cmp")
-if (not status) then
-	print("cmp is not available")
-	return
-end
-
-local status, cmp_luasnip = pcall(require, "cmp_luasnip")
-if (not status) then
-	print("cmp_luasnip is not available")
-	return
-end
-
 local on_attach = function(client, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -69,7 +39,7 @@ end
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Setup gopls
-lspconfig.gopls.setup {
+require'lspconfig'.gopls.setup {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
@@ -129,7 +99,3 @@ cmp.setup {
 	},
 }
 
--- Setup Github Copilot
--- Use Leader-tab to complete Copilot suggestion
-vim.api.nvim_set_keymap("i", "<Leader><Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-vim.g.copilot_no_tab_map = true

@@ -27,26 +27,29 @@
       gruvbox
       nerdtree
 
+      # LSP
       nvim-lspconfig
       nvim-cmp
       cmp-nvim-lsp
       cmp_luasnip
       luasnip
 
+      # Treesitter
       (nvim-treesitter.withPlugins (p: [ 
         p.go
         p.haskell
       ]))
 
-      vim-unimpaired
-      fzf-vim
+      vim-unimpaired # Helpful keybindings
+      fzf-vim # For fzf search
       vim-airline
-      pear-tree
-      vim-gitgutter
-      vim-surround
-      tokyonight-nvim
-      editorconfig-vim
-      vim-obsession
+      pear-tree # Automatic pairing of brackets
+      vim-gitgutter # For git
+      vim-surround # Surround text with stuff
+      tokyonight-nvim # Theme
+      editorconfig-vim # editorconfig
+      vim-obsession # For tracking vim sessions
+      vim-commentary # For commenting code
     ];
   };
 
