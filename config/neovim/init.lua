@@ -104,22 +104,18 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 require('lsp') -- Setup LSP
 
 -- Treesitter
-local available, treesitter = pcall(require, "nvim-treesitter.configs")
-if (available) then
-	treesitter.setup {
-		highlight = {
-		  enable = true,
-		  additional_vim_regex_highlighting = false,
-		},
-	}
-else
-	print("treesitter is not available")
-end
+require('nvim-treesitter.configs').setup {
+	highlight = {
+	  enable = true,
+	  additional_vim_regex_highlighting = false,
+	},
+}
 
 -- NERDTree toggle
-if (vim.g["NERDTree"]) then
-	vim.keymap.set('n', '<space>nt', ':NERDTreeToggle<CR>', { noremap=true, silent=true })
-	vim.keymap.set('n', '<space>nf', ':NERDTreeFind<CR>', { noremap=true, silent=true })
-else
-	print("NERDTree is not installed")
-end
+vim.keymap.set('n', '<space>nt', ':NERDTreeToggle<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', '<space>nf', ':NERDTreeFind<CR>', { noremap=true, silent=true })
+
+-- Setup Github Copilot
+-- Use Leader-tab to complete Copilot suggestion
+vim.api.nvim_set_keymap("i", "<Leader><Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+vim.g.copilot_no_tab_map = true
