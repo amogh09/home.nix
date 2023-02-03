@@ -16,9 +16,6 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -55,5 +52,11 @@
 
   xdg.configFile."nvim".source = ./config/neovim;
 
-  home.packages = with pkgs; [ tree fzf ];
+  programs.git = {
+    enable = true;
+    userName = "Amogh Rathore";
+    userEmail = "amoghdroid09@gmail.com";
+  };
+
+  home.packages = with pkgs; [ tree fzf bat ];
 }
