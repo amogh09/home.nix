@@ -94,5 +94,5 @@
     };
   };
 
-  home.packages = with pkgs; [ tree fzf bat ];
+  home.packages = with pkgs; [ tree fzf bat neovim-remote ];
 }
