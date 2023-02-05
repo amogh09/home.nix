@@ -91,6 +91,7 @@
       gfu = "git fetch upstream";
       gd = "git diff";
       gdc = "git diff --cached";
+      gcmsg = "git commit -m";
     };
   };
 
