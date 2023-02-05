@@ -85,6 +85,9 @@
     ];
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
+    historySubstringSearch = {
+      enable = true;
+    };
     shellAliases = {
       ll = "ls -la";
       gst = "git status";
