@@ -70,18 +70,28 @@
     initExtra = ''
     . $HOME/.nix-profile/etc/profile.d/nix.sh
     '';
-    # plugins = with pkgs; [
-    #   {
-    #     name = "agkozak-zsh-prompt";
-    #     src = fetchFromGitHub {
-    #       owner = "agkozak";
-    #       repo = "agkozak-zsh-prompt";
-    #       rev = "v3.11.1";
-    #       sha256 = "0000000000000000000000000000000000000000000000000000";
-    #     };
-    #     file = "agkozak-zsh-prompt.plugin.zsh";
-    #   }
-    # ];
+    plugins = with pkgs; [
+      {
+        name = "agkozak-zsh-prompt";
+        src = fetchFromGitHub {
+          owner = "agkozak";
+          repo = "agkozak-zsh-prompt";
+          rev = "v3.11.1";
+          sha256 = "1rl0bqmflz7c1n6j6n4677x6kscc160s6zd5his8bf1m3idw1rsc";
+        };
+        file = "agkozak-zsh-prompt.plugin.zsh";
+      }
+    ];
+    shellAliases = {
+      ll = "ls -la";
+      gst = "git status";
+      ga = "git add";
+      gco = "git checkout";
+      gfo = "git fetch origin";
+      gfu = "git fetch upstream";
+      gd = "git diff";
+      gdc = "git diff --cached";
+    };
   };
 
   home.packages = with pkgs; [ tree fzf bat ];
