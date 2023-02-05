@@ -16,6 +16,8 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
+  programs.home-manager.enable = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
