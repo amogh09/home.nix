@@ -83,6 +83,8 @@
         file = "agkozak-zsh-prompt.plugin.zsh";
       }
     ];
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
     shellAliases = {
       ll = "ls -la";
       gst = "git status";
@@ -92,6 +94,7 @@
       gfu = "git fetch upstream";
       gd = "git diff";
       gdc = "git diff --cached";
+      gdca = "git diff --cached";
       gcmsg = "git commit -m";
     };
   };
