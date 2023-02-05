@@ -53,6 +53,7 @@
       editorconfig-vim # editorconfig
       vim-obsession # For tracking vim sessions
       vim-commentary # For commenting code
+      vim-devicons # icons!!
     ];
   };
 
