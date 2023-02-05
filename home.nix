@@ -16,6 +16,10 @@
   # changes in each release.
   home.stateVersion = "22.11";
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   programs.home-manager.enable = true;
 
   programs.neovim = {
@@ -58,6 +62,26 @@
     enable = true;
     userName = "Amogh Rathore";
     userEmail = "amoghdroid09@gmail.com";
+  };
+
+  programs.zsh = {
+    enable = true;
+    dotDir = ".config/zsh";
+    initExtra = ''
+    . $HOME/.nix-profile/etc/profile.d/nix.sh
+    '';
+    # plugins = with pkgs; [
+    #   {
+    #     name = "agkozak-zsh-prompt";
+    #     src = fetchFromGitHub {
+    #       owner = "agkozak";
+    #       repo = "agkozak-zsh-prompt";
+    #       rev = "v3.11.1";
+    #       sha256 = "0000000000000000000000000000000000000000000000000000";
+    #     };
+    #     file = "agkozak-zsh-prompt.plugin.zsh";
+    #   }
+    # ];
   };
 
   home.packages = with pkgs; [ tree fzf bat ];
