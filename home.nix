@@ -11,11 +11,13 @@
 
   programs.home-manager.enable = true;
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      vim-nix
       gruvbox
       nerdtree
 
@@ -27,9 +29,10 @@
       luasnip
 
       # Treesitter
-      (nvim-treesitter.withPlugins (p: [ 
+      (nvim-treesitter.withPlugins (p: [
         p.go
         p.haskell
+        p.nix
       ]))
 
       vim-unimpaired # Helpful keybindings
@@ -59,6 +62,7 @@
     dotDir = ".config/zsh";
     initExtra = ''
     . $HOME/.nix-profile/etc/profile.d/nix.sh
+    eval "$(direnv hook zsh)"
     '';
     plugins = with pkgs; [
       {
@@ -94,5 +98,19 @@
     };
   };
 
-  home.packages = with pkgs; [ tree fzf bat neovim-remote ];
+  editorconfig = {
+    enable = true;
+    settings = {
+      "*" = {
+        charset = "utf-8";
+        end_of_line = "lf";
+        trim_trailing_whitespace = true;
+        insert_final_newline = true;
+        indent_style = "space";
+        indent_size = 4;
+      };
+    };
+  };
+
+  home.packages = with pkgs; [ tree fzf bat neovim-remote ripgrep rnix-lsp ];
 }

@@ -119,3 +119,6 @@ vim.keymap.set('n', '<space>nf', ':NERDTreeFind<CR>', { noremap=true, silent=tru
 -- Use Leader-tab to complete Copilot suggestion
 vim.api.nvim_set_keymap("i", "<Leader><Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 vim.g.copilot_no_tab_map = true
+
+-- Set up FZF
+vim.env.FZF_DEFAULT_COMMAND = 'rg --files'

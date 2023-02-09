@@ -55,6 +55,12 @@ require'lspconfig'.hls.setup{
 	on_attach = on_attach
 }
 
+-- Nix Language Server
+require'lspconfig'.rnix.setup{
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+
 -- luasnip setup
 local luasnip = require 'luasnip'
 
