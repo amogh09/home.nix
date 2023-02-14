@@ -33,6 +33,7 @@
         p.go
         p.haskell
         p.nix
+        p.json
       ]))
 
       vim-unimpaired # Helpful keybindings
@@ -46,6 +47,7 @@
       vim-obsession # For tracking vim sessions
       vim-commentary # For commenting code
       vim-devicons # icons!!
+      copilot-vim # Github copilot
     ];
   };
 
@@ -112,5 +114,14 @@
     };
   };
 
-  home.packages = with pkgs; [ tree fzf bat neovim-remote ripgrep rnix-lsp ];
+  home.packages = with pkgs; [
+    tree
+    fzf
+    bat
+    neovim-remote
+    ripgrep
+    rnix-lsp
+    nodePackages_latest.vscode-langservers-extracted
+    jq
+  ];
 }

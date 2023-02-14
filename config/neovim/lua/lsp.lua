@@ -61,6 +61,12 @@ require'lspconfig'.rnix.setup{
 	on_attach = on_attach
 }
 
+-- JSON Language Server
+require'lspconfig'.jsonls.setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+
 -- luasnip setup
 local luasnip = require 'luasnip'
 
